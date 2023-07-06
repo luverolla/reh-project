@@ -46,7 +46,7 @@ class SoundRecognitionNode:
     def dataset_setup(self):
         while not rospy.is_shutdown():
             rospy.loginfo("Waiting...")
-            data = rospy.wait_for_message('/speech_detection',SpeechData, timeout=5)
+            data = rospy.wait_for_message('/speech_detection',SpeechData)
             voice = np.array(data.data)
 
             # Se ho altri suoni nel support set
@@ -67,7 +67,10 @@ class SoundRecognitionNode:
             self.add_data(self.clf, voice)
 
     def recognize(self):
+        start_time = time()
         while not rospy.is_shutdown():
+            if time() - start_time > 5:
+                break
             rospy.loginfo("Waiting...")
             data = rospy.wait_for_message('/speech_detection',SpeechData)
             voice = np.array(data.data)
@@ -87,12 +90,15 @@ class SoundRecognitionNode:
                     sound_label = hypothesis
             else:
                 print(f"I heard: {sound_label} ({round(prob*100,2)}%)")
-            
+        
             self.pub.publish(sound_label)
 
     def test(self):
         while not rospy.is_shutdown():
             self.pub.publish("Test message")
+
+    def sub_clbk(self, data):
+        self.recognize()
 
     def start(self, setup = False):
         self.setup = setup
@@ -108,10 +114,8 @@ class SoundRecognitionNode:
         if setup:
             self.dataset_setup()
         else:
-            #self.test()
-            self.recognize()
-
-
+            rospy.Subscriber("soundrec_trig", String, self.sub_clbk)
+            rospy.spin()
 
 if __name__ == "__main__":
     ssr = SoundRecognitionNode()

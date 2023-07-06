@@ -1,5 +1,0 @@
-object_detection
-/home/mivia/Desktop/medrob_ws/devel/.private/object_detection/cmake.lock /home/mivia/Desktop/medrob_ws/devel/./cmake.lock
-/home/mivia/Desktop/medrob_ws/devel/.private/object_detection/share/object_detection/cmake/object_detectionConfig-version.cmake /home/mivia/Desktop/medrob_ws/devel/share/object_detection/cmake/object_detectionConfig-version.cmake
-/home/mivia/Desktop/medrob_ws/devel/.private/object_detection/share/object_detection/cmake/object_detectionConfig.cmake /home/mivia/Desktop/medrob_ws/devel/share/object_detection/cmake/object_detectionConfig.cmake
-/home/mivia/Desktop/medrob_ws/devel/.private/object_detection/lib/pkgconfig/object_detection.pc /home/mivia/Desktop/medrob_ws/devel/lib/pkgconfig/object_detection.pc

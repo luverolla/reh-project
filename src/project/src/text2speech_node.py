@@ -28,7 +28,7 @@ class Text2SpeechNode:
 
 if __name__ == "__main__":
     parser = OptionParser()
-    parser.add_option("--ip", dest="ip", default="10.0.1.207")
+    parser.add_option("--ip", dest="ip", default="10.0.1.236")
     parser.add_option("--port", dest="port", default=9559)
     (options, args) = parser.parse_args()
 

@@ -5,19 +5,23 @@ from std_msgs.msg import String
 
 class SoundRecognitionClient:
     
-    def __init__(self):
-        self.curr_sound = []
-
-    def start(self, node_name):
+    def __init__(self, node_name):
+        self.curr_sounds = []
         rospy.init_node(node_name, anonymous=True)
+        self.pub = rospy.Publisher('soundrec_trig', String, queue_size=10)
+
+    def start(self):
         rospy.Subscriber("soundrec", String, self.sub_clbk)
 
     def sub_clbk(self, data):
-        self.curr_sound.append(data.data)
+        self.curr_sounds.append(data.data)
         rospy.loginfo(rospy.get_caller_id() + " heard %s" % data.data)
 
-    def get_sound(self):
-        return self.curr_sound
+    def recognize(self):
+        self.pub.publish("start")
+
+    def get_sounds(self):
+        return self.curr_sounds
 
 if __name__ == "__main__": 
     src = SoundRecognitionClient()
