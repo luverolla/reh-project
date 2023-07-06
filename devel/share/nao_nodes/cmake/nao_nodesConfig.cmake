@@ -1,0 +1,1 @@
+/home/mivia/Desktop/medrob_ws/devel/.private/nao_nodes/share/nao_nodes/cmake/nao_nodesConfig.cmake

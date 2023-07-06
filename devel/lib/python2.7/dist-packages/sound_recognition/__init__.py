@@ -1,0 +1,1 @@
+/home/mivia/Desktop/medrob_ws/devel/.private/sound_recognition/lib/python2.7/dist-packages/sound_recognition/__init__.py

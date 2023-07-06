@@ -1,0 +1,10 @@
+(cl:defpackage sound_recognition-srv
+  (:use )
+  (:export
+   "SOUNDRECOGNITION"
+   "<SOUNDRECOGNITION-REQUEST>"
+   "SOUNDRECOGNITION-REQUEST"
+   "<SOUNDRECOGNITION-RESPONSE>"
+   "SOUNDRECOGNITION-RESPONSE"
+  ))
+

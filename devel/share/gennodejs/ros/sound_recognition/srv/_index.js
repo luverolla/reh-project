@@ -1,0 +1,1 @@
+/home/mivia/Desktop/medrob_ws/devel/.private/sound_recognition/share/gennodejs/ros/sound_recognition/srv/_index.js

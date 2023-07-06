@@ -1,0 +1,5 @@
+**/__pycache__/
+src/sound_recognition/src/sounds/
+src/sound_recognition/src/weights/
+build/
+logs/

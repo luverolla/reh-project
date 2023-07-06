@@ -1,0 +1,8 @@
+prefix=/home/mivia/Desktop/medrob_ws/devel/.private/gaze_estimation
+
+Name: gaze_estimation
+Description: Description of gaze_estimation
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

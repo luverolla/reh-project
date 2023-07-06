@@ -1,0 +1,1 @@
+/home/mivia/Desktop/medrob_ws/devel/.private/sound_recognition/share/roseus/ros/sound_recognition/srv/SoundRecognition.l

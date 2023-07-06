@@ -1,0 +1,8 @@
+prefix=/home/mivia/Desktop/medrob_ws/devel/.private/nao_nodes
+
+Name: nao_nodes
+Description: Description of nao_nodes
+Version: 0.0.0
+Cflags: -I/home/mivia/Desktop/medrob_ws/devel/.private/nao_nodes/include
+Libs: -L${prefix}/lib 
+Requires: message_runtime

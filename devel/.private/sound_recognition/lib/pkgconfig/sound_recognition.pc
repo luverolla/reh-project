@@ -1,0 +1,8 @@
+prefix=/home/mivia/Desktop/medrob_ws/devel/.private/sound_recognition
+
+Name: sound_recognition
+Description: Description of sound_recognition
+Version: 0.0.0
+Cflags: -I/home/mivia/Desktop/medrob_ws/devel/.private/sound_recognition/include
+Libs: -L${prefix}/lib 
+Requires: message_runtime

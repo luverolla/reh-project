@@ -1,0 +1,1 @@
+/home/mivia/Desktop/medrob_ws/devel/.private/project/share/gennodejs/ros/project/srv/_index.js

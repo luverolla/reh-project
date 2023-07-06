@@ -1,0 +1,8 @@
+prefix=/home/mivia/Desktop/medrob_ws/devel/.private/project
+
+Name: project
+Description: Description of project
+Version: 0.0.0
+Cflags: -I/home/mivia/Desktop/medrob_ws/devel/.private/project/include
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,0 +1,1 @@
+/home/mivia/Desktop/medrob_ws/devel/.private/sound_recognition/lib/pkgconfig/sound_recognition.pc

@@ -1,0 +1,1 @@
+/home/mivia/Desktop/medrob_ws/devel/.private/project/share/roseus/ros/project/srv/Text2Speech.l

@@ -1,0 +1,2 @@
+set(nao_nodes_MESSAGE_FILES "")
+set(nao_nodes_SERVICE_FILES "/home/mivia/Desktop/medrob_ws/src/nao_nodes/srv/LoadUrl.srv;/home/mivia/Desktop/medrob_ws/src/nao_nodes/srv/AudioPlayer.srv;/home/mivia/Desktop/medrob_ws/src/nao_nodes/srv/Locomotion.srv;/home/mivia/Desktop/medrob_ws/src/nao_nodes/srv/Rest.srv;/home/mivia/Desktop/medrob_ws/src/nao_nodes/srv/Text2Speech.srv;/home/mivia/Desktop/medrob_ws/src/nao_nodes/srv/WakeUp.srv")

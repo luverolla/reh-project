@@ -1,0 +1,1 @@
+/home/mivia/Desktop/medrob_ws/devel/.private/vision_msgs/share/roseus/ros/vision_msgs/msg/Detection3DArray.l
