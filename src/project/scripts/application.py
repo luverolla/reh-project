@@ -33,12 +33,15 @@ if __name__ == "__main__":
         print("Timeout of %d seconds expired" % 5)
         print("Recorded: " + str(sounds))
         if obj_lbls[index] in sounds:
+            print("Sound is right")
             index += 1
             continue
         else:
             err_count += 1
+            print("Sound is wrong, total errors: %d", err_count)
 
             if err_count > 2:
+                print("Maximum allowed errors reached, exercise failed")
                 t2s.say("End of exercise")
                 break
             continue
