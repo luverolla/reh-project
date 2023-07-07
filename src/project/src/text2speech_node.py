@@ -14,9 +14,11 @@ class Text2SpeechNode:
 
     def say(self, msg):
         try:
+            self.tts.setParameter("speed", msg.speed)
             self.tts.say(msg.speech)
         except:
             self.tts = ALProxy("ALTextToSpeech", self.ip, self.port)
+            self.tts.setParameter("speed", msg.speed)
             self.tts.say(msg.speech)
         return "ACK"
     

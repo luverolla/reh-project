@@ -15,7 +15,6 @@ class SoundRecognitionClient:
 
     def sub_clbk(self, data):
         self.curr_sounds.append(data.data)
-        rospy.loginfo(rospy.get_caller_id() + " heard %s" % data.data)
 
     def recognize(self):
         self.pub.publish("start")

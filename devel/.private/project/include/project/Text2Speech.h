@@ -40,7 +40,7 @@ template<>
 struct MD5Sum< ::project::Text2Speech > {
   static const char* value()
   {
-    return "8be93dfc13258654eb30fdcda5227e42";
+    return "7459ac5d796c08af89c1f1205a77bfa7";
   }
 
   static const char* value(const ::project::Text2Speech&) { return value(); }

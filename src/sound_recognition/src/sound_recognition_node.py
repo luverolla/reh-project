@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import sys
 from sound_recognition.msg import SpeechData
-from sound_recognition.srv import SoundRecognition
 
 from std_msgs.msg import String
 import argparse
@@ -86,7 +85,7 @@ class SoundRecognitionNode:
 
             if sound_label is None:
                 print(f"Unknown sound, hypotesis: {hypothesis} ({round(prob*100,2)}%)")
-                if prob > 0.7:
+                if prob > 0.9:
                     sound_label = hypothesis
             else:
                 print(f"I heard: {sound_label} ({round(prob*100,2)}%)")

@@ -22,6 +22,7 @@ class Text2SpeechRequest {
     if (initObj === null) {
       // initObj === null is a special case for deserialization where we don't initialize fields
       this.speech = null;
+      this.speed = null;
     }
     else {
       if (initObj.hasOwnProperty('speech')) {
@@ -30,6 +31,12 @@ class Text2SpeechRequest {
       else {
         this.speech = '';
       }
+      if (initObj.hasOwnProperty('speed')) {
+        this.speed = initObj.speed
+      }
+      else {
+        this.speed = 0;
+      }
     }
   }
 
@@ -37,6 +44,8 @@ class Text2SpeechRequest {
     // Serializes a message object of type Text2SpeechRequest
     // Serialize message field [speech]
     bufferOffset = _serializer.string(obj.speech, buffer, bufferOffset);
+    // Serialize message field [speed]
+    bufferOffset = _serializer.int32(obj.speed, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -46,13 +55,15 @@ class Text2SpeechRequest {
     let data = new Text2SpeechRequest(null);
     // Deserialize message field [speech]
     data.speech = _deserializer.string(buffer, bufferOffset);
+    // Deserialize message field [speed]
+    data.speed = _deserializer.int32(buffer, bufferOffset);
     return data;
   }
 
   static getMessageSize(object) {
     let length = 0;
     length += object.speech.length;
-    return length + 4;
+    return length + 8;
   }
 
   static datatype() {
@@ -62,13 +73,14 @@ class Text2SpeechRequest {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '0f212b08e2dfacb9148fa1a62023e9ac';
+    return 'f5d36b2089f34ae1744c930da536f36b';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
     string speech
+    int32 speed
     
     `;
   }
@@ -84,6 +96,13 @@ class Text2SpeechRequest {
     }
     else {
       resolved.speech = ''
+    }
+
+    if (msg.speed !== undefined) {
+      resolved.speed = msg.speed;
+    }
+    else {
+      resolved.speed = 0
     }
 
     return resolved;
@@ -166,6 +185,6 @@ class Text2SpeechResponse {
 module.exports = {
   Request: Text2SpeechRequest,
   Response: Text2SpeechResponse,
-  md5sum() { return '8be93dfc13258654eb30fdcda5227e42'; },
+  md5sum() { return '7459ac5d796c08af89c1f1205a77bfa7'; },
   datatype() { return 'project/Text2Speech'; }
 };

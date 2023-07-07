@@ -5,24 +5,25 @@ from project.srv import *
 
 class Text2SpeechClient:
 
-    def say(self, msg):
+    def say(self, speech, speed):
         rospy.wait_for_service("tts")
         try:
             tts = rospy.ServiceProxy('tts', Text2Speech)
-            respl = tts(msg)
+            respl = tts(speech, speed)
             return respl.ack
         except rospy.ServiceException as e:
             print("Text2Speech client exception %s" % e)
 
 def usage():
-    return "%s [message]" % sys.argv[0]
+    return "%s [speed] [message]" % sys.argv[0]
 
 if __name__ == "__main__":
-    if len(sys.argv) == 2:
-        msg = sys.argv[1]
+    if len(sys.argv) == 3:
+        msg = sys.argv[2]
+        speed = int(sys.argv[1])
     else:
         print(usage())
         sys.exit(1)
     
-    print("Requesting speech of %s" % msg)
-    print("Received %s" % Text2SpeechClient().say(msg))
+    print("Requesting speech of %s at speed %d" % (msg, speed))
+    print("Received %s" % Text2SpeechClient().say(msg, speed))

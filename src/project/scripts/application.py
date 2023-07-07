@@ -1,25 +1,24 @@
 #!/usr/bin/env python
+# -*- coding: UTF-8 -*-
 
 import time
-from audioplayer_client import AudioPlayerClient
 import rospy
 from sound_recognition_client import SoundRecognitionClient
 from text2speech_client import Text2SpeechClient
 
-def get_sound_file(name):
-    return "/home/nao/group1/sounds/%s/0001.wav" % name
-
-
 if __name__ == "__main__":
-    obj_names = ["Cow", "Sheep", "Car", "Train", "Dog"]
-    obj_snds = ["muuuu", "beeeee", "brum brum", "ciuf ciuf", "bau bau"]
-    obj_lbls = ["cow", "sheep", "car", "train", "dog"]
+    obj_names = open("/home/mivia/Desktop/medrob_ws/src/project/names.txt").read().splitlines()
+    obj_snds = open("/home/mivia/Desktop/medrob_ws/src/project/sounds.txt").read().splitlines()
+    obj_lbls = open("/home/mivia/Desktop/medrob_ws/src/project/labels.txt").read().splitlines()
     index = 0
     err_count = 0
 
     t2s = Text2SpeechClient()
     sr = SoundRecognitionClient("sr_client")
 
+    t2s.say("Ciao, sono Nao. Facciamo un gioco. Pronuncerò il suono di alcuni oggetti e animali, e tu dovrai ripeterli.")
+    t2s.say("Avrai cinque secondi per ripetere il suono, e tre tentativi totali. Sei pronto per iniziare?")
+    raw_input()
     while index < len(obj_names):
         sr.start()
         sounds = []
@@ -42,13 +41,21 @@ if __name__ == "__main__":
             continue
         else:
             err_count += 1
+            t2s.say("Peccato, non era il suono giusto.")
             rospy.loginfo("Sound is wrong, total errors: %d", err_count)
 
             if err_count > 2:
                 rospy.loginfo("Maximum allowed errors reached, exercise failed")
-                t2s.say("End of exercise")
+                t2s.say("Non sei riuscito a terminare correttamente l'esercìzio.")
                 break
+
+            t2s.say("Riproviamo!")
             continue
+    
+    # completed correctly
+    if err_count < 3:
+        rospy.loginfo("Activity completed with success")
+        t2s.say("Molto bene!")
 
         
 

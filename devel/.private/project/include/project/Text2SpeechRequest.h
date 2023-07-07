@@ -24,10 +24,12 @@ struct Text2SpeechRequest_
   typedef Text2SpeechRequest_<ContainerAllocator> Type;
 
   Text2SpeechRequest_()
-    : speech()  {
+    : speech()
+    , speed(0)  {
     }
   Text2SpeechRequest_(const ContainerAllocator& _alloc)
-    : speech(_alloc)  {
+    : speech(_alloc)
+    , speed(0)  {
   (void)_alloc;
     }
 
@@ -35,6 +37,9 @@ struct Text2SpeechRequest_
 
    typedef std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other >  _speech_type;
   _speech_type speech;
+
+   typedef int32_t _speed_type;
+  _speed_type speed;
 
 
 
@@ -65,7 +70,8 @@ return s;
 template<typename ContainerAllocator1, typename ContainerAllocator2>
 bool operator==(const ::project::Text2SpeechRequest_<ContainerAllocator1> & lhs, const ::project::Text2SpeechRequest_<ContainerAllocator2> & rhs)
 {
-  return lhs.speech == rhs.speech;
+  return lhs.speech == rhs.speech &&
+    lhs.speed == rhs.speed;
 }
 
 template<typename ContainerAllocator1, typename ContainerAllocator2>
@@ -122,12 +128,12 @@ struct MD5Sum< ::project::Text2SpeechRequest_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "0f212b08e2dfacb9148fa1a62023e9ac";
+    return "f5d36b2089f34ae1744c930da536f36b";
   }
 
   static const char* value(const ::project::Text2SpeechRequest_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x0f212b08e2dfacb9ULL;
-  static const uint64_t static_value2 = 0x148fa1a62023e9acULL;
+  static const uint64_t static_value1 = 0xf5d36b2089f34ae1ULL;
+  static const uint64_t static_value2 = 0x744c930da536f36bULL;
 };
 
 template<class ContainerAllocator>
@@ -147,6 +153,7 @@ struct Definition< ::project::Text2SpeechRequest_<ContainerAllocator> >
   static const char* value()
   {
     return "string speech\n"
+"int32 speed\n"
 ;
   }
 
@@ -166,6 +173,7 @@ namespace serialization
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
       stream.next(m.speech);
+      stream.next(m.speed);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -186,6 +194,8 @@ struct Printer< ::project::Text2SpeechRequest_<ContainerAllocator> >
   {
     s << indent << "speech: ";
     Printer<std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other > >::stream(s, indent + "  ", v.speech);
+    s << indent << "speed: ";
+    Printer<int32_t>::stream(s, indent + "  ", v.speed);
   }
 };
 

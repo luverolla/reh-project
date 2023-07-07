@@ -1,3 +1,4 @@
 string speech
+int32 speed
 ---
 string ack
